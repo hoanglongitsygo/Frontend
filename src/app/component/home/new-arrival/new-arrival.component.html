@@ -1,0 +1,30 @@
+<div class="new-arrival-container">
+  <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true"
+    [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+    <ng-template pTemplate="header">
+      <h3>Hàng mới về</h3>
+    </ng-template>
+    <ng-template let-product pTemplate="item">
+      <div class="product-item">
+        <div class="product-item-content">
+          <div class="p-mb-3">
+            <img src="https://cf.shopee.vn/file/7265ce181051861b7aaa40bb9f99f144" [alt]="product.name"
+              class="product-image" />
+          </div>
+          <div>
+            <h4 class="p-mb-1">{{product.name}}</h4>
+            <h5 class="p-mt-0 p-mb-3">${{product.price}}</h5>
+            <span
+              [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
+            <div class="car-buttons p-mt-5">
+              <p-button type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-search"></p-button>
+              <p-button type="button" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-star">
+              </p-button>
+              <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-cog"></p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>

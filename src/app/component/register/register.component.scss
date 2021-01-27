@@ -1,0 +1,20 @@
+.register-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../../assets/img/register-bg.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+
+  .register-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .margin {
+      margin: 10px 0;
+    }
+  }
+}
+

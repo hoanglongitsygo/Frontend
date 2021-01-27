@@ -1,0 +1,55 @@
+<div class="register-container">
+  <div class="register-content">
+
+    <!-- header start -->
+    <p-card header="Đăng ký" subheader="Đăng ký để nhận nhiều ưu đãi hơn" [style]="{width: '30vw'}"
+      styleClass="p-card-shadow">
+      <!-- header end -->
+
+      <!-- form register start -->
+      <form [formGroup]="registerForm">
+
+        <div class="p-fluid">
+          <!-- fullname -->
+          <div class="p-field p-grid">
+            <label for="fullname" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Họ & Tên</label>
+            <div class="p-col-12 p-md-10 margin">
+              <input id="fullname" formControlName="fullName" type="text" pInputText>
+            </div>
+          </div>
+          <!-- phone number -->
+          <div class="p-field p-grid">
+            <label for="phone-number" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Số điện thoại</label>
+            <div class="p-col-12 p-md-10 margin">
+              <input id="phone-number" formControlName="phoneNumber" type="number" pInputText>
+            </div>
+          </div>
+          <!-- password -->
+          <div class="p-field p-grid">
+            <label for="password" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Mật khẩu</label>
+            <div class="p-col-12 p-md-10 margin">
+              <input id="password" type="password" formControlName="password" pInputText>
+            </div>
+          </div>
+          <!-- re-password -->
+          <div class="p-field p-grid">
+            <label for="re-password" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Xác nhận mật khẩu</label>
+            <div class="p-col-12 p-md-10 margin">
+              <input id="re-password" type="password" formControlName="rePassword" pInputText>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- form register end -->
+
+      <!-- action start -->
+      <ng-template pTemplate="footer">
+        <div style="text-align: right;">
+          <p-button (click)="cancel()" label="Hủy" icon="pi pi-times" styleClass="p-button-secondary"></p-button>
+          <p-button (click)="onSubmit()" label="Đăng ký" icon="pi pi-check" [style]="{'margin-left': '.5em'}"></p-button>
+        </div>
+      </ng-template>
+      <!-- action ends -->
+    </p-card>
+  </div>
+</div>

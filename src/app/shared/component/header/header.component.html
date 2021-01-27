@@ -1,0 +1,24 @@
+<div class="header-bar">
+  <div class="header-bar-content">
+    <div class="promotion">
+      <p>Free ship đơn hàng từ 300.000đ</p>
+    </div>
+    <div class="action">
+      <i style="font-size: 1.5em;" (click)="onClickCart()" class="pi pi-shopping-cart" pBadge value="2"></i>
+      <i style="font-size: 1.5em;margin-left: 1em;" (click)="onClickUser()" class="pi pi-user"></i>
+    </div>
+  </div>
+</div>
+
+
+<div class="header-menu">
+  <div class="navigation-bar">
+    <div class="logo"></div>
+    <div class="menu-bar">
+      <a [ngClass]="{ 'active': active === 'home'}" href="">Trang chủ</a>
+      <a [ngClass]="{ 'active': active === 'man'}" href="">Thời trang nam</a>
+      <a [ngClass]="{ 'active': active === 'woman'}" href="">Thời trang nữ</a>
+      <a [ngClass]="{ 'active': active === 'accessories'}" href="">Phụ kiện</a>
+    </div>
+  </div>
+</div>
