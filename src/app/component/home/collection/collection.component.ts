@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+
 import { data as product } from '../../../../assets/data/product.json';
 
 @Component({
   selector: 'app-collection',
   templateUrl: './collection.component.html',
-  styleUrls: ['./collection.component.scss']
+  styleUrls: ['./collection.component.scss'],
+  providers: [MessageService]
 })
 export class CollectionComponent implements OnInit {
   products = product;
@@ -18,7 +21,9 @@ export class CollectionComponent implements OnInit {
 
   sortField: string;
 
-  constructor() { }
+  constructor(
+    private messageService: MessageService
+  ) { }
 
   ngOnInit() {
     this.sortOptions = [
@@ -38,5 +43,12 @@ export class CollectionComponent implements OnInit {
       this.sortOrder = 1;
       this.sortField = value;
     }
+  }
+
+  addCart(item) {
+    const listProduct = JSON.parse(localStorage.getItem('cart')) || [];
+    listProduct.push(item)
+    localStorage.setItem('cart', JSON.stringify(listProduct));
+    this.messageService.add({ severity: 'success', summary: 'Thành công', detail: 'Bạn đã thêm sản phẩm vào giỏ hàng!' });
   }
 }

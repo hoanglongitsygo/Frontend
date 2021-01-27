@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-new-arrival',
   templateUrl: './new-arrival.component.html',
-  styleUrls: ['./new-arrival.component.scss']
+  styleUrls: ['./new-arrival.component.scss'],
+  providers: [MessageService]
 })
 export class NewArrivalComponent implements OnInit {
   products = [
@@ -131,7 +133,9 @@ export class NewArrivalComponent implements OnInit {
 
   responsiveOptions;
 
-  constructor() {
+  constructor(
+    private messageService: MessageService
+  ) {
     this.responsiveOptions = [
       {
         breakpoint: "1024px",
@@ -153,5 +157,26 @@ export class NewArrivalComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  addCart(item) {
+    const listProduct = JSON.parse(localStorage.getItem('cart')) || [];
+    listProduct.push(item)
+    localStorage.setItem('cart', JSON.stringify(listProduct));
+    this.messageService.add({ severity: 'success', summary: 'Thành công', detail: 'Bạn đã thêm sản phẩm vào giỏ hàng!' });
+
+  }
+
+  addFavorite(item) {
+    const listProduct = JSON.parse(localStorage.getItem('favorite')) || [];
+    listProduct.push(item)
+    localStorage.setItem('favorite', JSON.stringify(listProduct));
+    this.messageService.add({ severity: 'success', summary: 'Thành công', detail: 'Bạn đã thêm sản phẩm vào mục yêu thích!' });
+
+  }
+
+  viewDetails(id) {
+    const product = this.products.find(item => item.id === id);
+    console.log(product);
   }
 }

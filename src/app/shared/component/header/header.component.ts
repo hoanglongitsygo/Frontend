@@ -9,15 +9,23 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   @Input() active;
+  cart;
+  favorite;
 
   constructor(
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.cart = JSON.parse(localStorage.getItem('cart'));
+    this.favorite = JSON.parse(localStorage.getItem('favorite'));
   }
 
   onClickCart() {
+    this.router.navigate(["cart"]);
+  }
+
+  onClickFavorite() {
     this.router.navigate(["cart"]);
   }
 

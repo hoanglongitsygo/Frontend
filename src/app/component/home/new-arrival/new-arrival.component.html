@@ -1,6 +1,6 @@
 <div class="new-arrival-container">
   <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true"
-    [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+    [autoplayInterval]="5000" [responsiveOptions]="responsiveOptions">
     <ng-template pTemplate="header">
       <h3>Hàng mới về</h3>
     </ng-template>
@@ -17,10 +17,10 @@
             <span
               [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
             <div class="car-buttons p-mt-5">
-              <p-button type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-search"></p-button>
-              <p-button type="button" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-star">
+              <p-button type="button" (click)="addCart(product)" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-shopping-cart"></p-button>
+              <p-button type="button" (click)="addFavorite(product)" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-heart">
               </p-button>
-              <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-cog"></p-button>
+              <p-button type="button" (click)="viewDetails(product.id)" styleClass="p-button-help p-button-rounded" icon="pi pi-search"></p-button>
             </div>
           </div>
         </div>
@@ -28,3 +28,4 @@
     </ng-template>
   </p-carousel>
 </div>
+<p-toast></p-toast>

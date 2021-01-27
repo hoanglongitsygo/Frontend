@@ -11,6 +11,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
+import { ToastModule } from 'primeng/toast';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
     RatingModule,
     FormsModule,
     InputTextModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastModule
   ],
   exports: [
     RouterModule,

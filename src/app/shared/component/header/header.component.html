@@ -4,8 +4,11 @@
       <p>Free ship đơn hàng từ 300.000đ</p>
     </div>
     <div class="action">
-      <i style="font-size: 1.5em;" (click)="onClickCart()" class="pi pi-shopping-cart" pBadge value="2"></i>
-      <i style="font-size: 1.5em;margin-left: 1em;" (click)="onClickUser()" class="pi pi-user"></i>
+      <i style="font-size: 1.5em;" (click)="onClickCart()" class="pi pi-shopping-cart" severity="danger" pBadge
+        value="{{ cart? cart.length : null }}"></i>
+      <i style="font-size: 1.5em; margin-left: 1em;" (click)="onClickFavorite()" class="pi pi-heart" severity="success"
+        pBadge value="{{ favorite?.length }}"></i>
+      <i style="font-size: 1.5em; margin-left: 1em;" (click)="onClickUser()" class="pi pi-user"></i>
     </div>
   </div>
 </div>
