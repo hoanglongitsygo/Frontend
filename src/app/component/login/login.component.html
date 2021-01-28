@@ -1,1 +1,44 @@
-<p>login works!</p>
+<div class="login-container">
+  <div class="login-content">
+    <!-- header start -->
+    <p-card header="Đăng nhập" subheader="Đăng nhập để nhận thông báo và ưu đãi mới nhất" [style]="{width: '40vw'}"
+      styleClass="p-card-shadow">
+      <!-- header end -->
+
+      <!-- form login start -->
+      <form [formGroup]="loginForm">
+
+        <div class="p-fluid">
+          <!-- username -->
+          <div class="p-field p-grid">
+            <label for="username" class="p-col-12 p-mb-2 p-md-4 p-mb-md-0">Tên đăng nhập</label>
+            <div class="p-col-12 p-md-8">
+              <input id="username" type="text" formControlName="username" pInputText>
+            </div>
+          </div>
+          <!-- password -->
+          <div class="p-field p-grid">
+            <label for="password" class="p-col-12 p-mb-2 p-md-4 p-mb-md-0">Mật khẩu</label>
+            <div class="p-col-12 p-md-8">
+              <input id="password" type="password" formControlName="password" pInputText>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- form login end -->
+
+      <div class="has-account">
+        <span>Bạn chưa có tài khoản? </span><a routerLink="/register">Đăng ký</a>
+      </div>
+
+      <!-- action start -->
+      <ng-template pTemplate="footer">
+        <div style="text-align: right;">
+          <p-button (click)="cancel()" label="Hủy" icon="pi pi-times" styleClass="p-button-secondary"></p-button>
+          <p-button (click)="onSubmit()" label="Đăng nhập" icon="pi pi-check" [style]="{'margin-left': '.5em'}"></p-button>
+        </div>
+      </ng-template>
+      <!-- action ends -->
+    </p-card>
+  </div>
+</div>

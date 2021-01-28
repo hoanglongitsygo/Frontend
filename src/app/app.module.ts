@@ -1,5 +1,8 @@
+import { RegisterModule } from './component/register/register.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +24,8 @@ import { CarouselModule } from 'primeng/carousel';
 import { BadgeModule } from 'primeng/badge';
 import { CartComponent } from './component/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastModule } from 'primeng/toast';
+
 
 
 @NgModule({
@@ -45,9 +50,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ButtonModule,
     ReactiveFormsModule,
     HomeModule,
+    RegisterModule,
     CarouselModule,
     BadgeModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

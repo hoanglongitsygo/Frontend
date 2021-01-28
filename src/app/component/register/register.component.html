@@ -2,7 +2,7 @@
   <div class="register-content">
 
     <!-- header start -->
-    <p-card header="Đăng ký" subheader="Đăng ký để nhận nhiều ưu đãi hơn" [style]="{width: '30vw'}"
+    <p-card header="Đăng ký" subheader="Đăng ký để nhận nhiều ưu đãi hơn" [style]="{width: '40vw'}"
       styleClass="p-card-shadow">
       <!-- header end -->
 
@@ -12,35 +12,53 @@
         <div class="p-fluid">
           <!-- fullname -->
           <div class="p-field p-grid">
-            <label for="fullname" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Họ & Tên</label>
-            <div class="p-col-12 p-md-10 margin">
+            <label for="fullname" class="p-col-12 p-mb-2 p-md-4 p-mb-md-0">Họ & Tên</label>
+            <div class="p-col-12 p-md-8">
               <input id="fullname" formControlName="fullName" type="text" pInputText>
+            </div>
+          </div>
+          <!-- email -->
+          <div class="p-field p-grid">
+            <label for="mail" class="p-col-12 p-mb-2 p-md-4 p-mb-md-0">E-mail</label>
+            <div class="p-col-12 p-md-8">
+              <input id="mail" formControlName="email" type="email" pInputText>
             </div>
           </div>
           <!-- phone number -->
           <div class="p-field p-grid">
-            <label for="phone-number" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Số điện thoại</label>
-            <div class="p-col-12 p-md-10 margin">
-              <input id="phone-number" formControlName="phoneNumber" type="number" pInputText>
+            <label for="phone-number" class="p-col-12 p-mb-2 p-md-4 p-mb-md-0">Số điện thoại</label>
+            <div class="p-col-12 p-md-8">
+              <input id="phone-number" formControlName="phoneNumber" type="text" pInputText>
+            </div>
+          </div>
+          <!-- username -->
+          <div class="p-field p-grid">
+            <label for="username" class="p-col-12 p-mb-2 p-md-4 p-mb-md-0">Tên đăng nhập</label>
+            <div class="p-col-12 p-md-8">
+              <input id="username" type="text" formControlName="username" pInputText>
             </div>
           </div>
           <!-- password -->
           <div class="p-field p-grid">
-            <label for="password" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Mật khẩu</label>
-            <div class="p-col-12 p-md-10 margin">
+            <label for="password" class="p-col-12 p-mb-2 p-md-4 p-mb-md-0">Mật khẩu</label>
+            <div class="p-col-12 p-md-8">
               <input id="password" type="password" formControlName="password" pInputText>
             </div>
           </div>
           <!-- re-password -->
           <div class="p-field p-grid">
-            <label for="re-password" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Xác nhận mật khẩu</label>
-            <div class="p-col-12 p-md-10 margin">
+            <label for="re-password" class="p-col-12 p-mb-2 p-md-4 p-mb-md-0">Xác nhận mật khẩu</label>
+            <div class="p-col-12 p-md-8">
               <input id="re-password" type="password" formControlName="rePassword" pInputText>
             </div>
           </div>
         </div>
       </form>
       <!-- form register end -->
+
+      <div class="has-account">
+        <span>Bạn đã có tài khoản? </span><a routerLink="/login">Đăng nhập</a>
+      </div>
 
       <!-- action start -->
       <ng-template pTemplate="footer">
@@ -53,3 +71,4 @@
     </p-card>
   </div>
 </div>
+<p-toast></p-toast>
