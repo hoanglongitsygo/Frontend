@@ -1,3 +1,4 @@
+import { CartService } from './../../core/services/cart.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  cart;
+
+  constructor(
+    private cartService: CartService
+  ) { }
 
   ngOnInit(): void {
+    this.cart = JSON.parse(localStorage.getItem('cart'));
+  }
+
+  deleteProduct(product) {
+    const index = this.cart.findIndex(prod => {
+      return prod === product;
+    });
+    this.cart.splice(index, 1);
+    this.cartService.setCartLocalStorage(this.cart);
+  }
+
+  totalPrice() {
+    let totalPrice = 0;
+    this.cart.forEach(element => {
+      totalPrice += element.price;
+    });
+    return totalPrice;
   }
 
 }

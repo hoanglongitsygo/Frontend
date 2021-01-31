@@ -1,8 +1,10 @@
+import { CartService } from './../../../core/services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 
 import { data as product } from '../../../../assets/data/product.json';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-collection',
@@ -22,7 +24,9 @@ export class CollectionComponent implements OnInit {
   sortField: string;
 
   constructor(
-    private messageService: MessageService
+    private messageService: MessageService,
+    private cartService: CartService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -50,5 +54,10 @@ export class CollectionComponent implements OnInit {
     listProduct.push(item)
     localStorage.setItem('cart', JSON.stringify(listProduct));
     this.messageService.add({ severity: 'success', summary: 'Thành công', detail: 'Bạn đã thêm sản phẩm vào giỏ hàng!' });
+    this.cartService.setCartLocalStorage(listProduct);
+  }
+
+  viewDetails(id) {
+    this.router.navigate([`/product-details/${id}`]);
   }
 }

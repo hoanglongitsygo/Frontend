@@ -1,1 +1,54 @@
-<p>cart works!</p>
+<app-header></app-header>
+
+<div class="cart-container">
+  <div class="title"> <i class="pi pi-shopping-cart" style="font-size: 2rem"></i>
+    Giỏ hàng</div>
+  <div *ngIf="cart?.length > 0; else cartEmpty" class="cart-content">
+
+    <div *ngFor="let product of cart">
+      <div class="p-col-12">
+        <div class="product-list-item">
+          <img src="https://cf.shopee.vn/file/7265ce181051861b7aaa40bb9f99f144" [alt]="product.name"
+            class="product-image" />
+          <div class="product-list-detail">
+            <div class="product-name">{{product.name}}</div>
+            <div class="product-description">{{product.description}}</div>
+            <!-- <p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating> -->
+            <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{product.category}}</span>
+          </div>
+          <div class="product-list-action">
+            <span class="product-price">${{product.price}}</span>
+            <span
+              [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
+            <button pButton pRipple class="btn-delete p-button-danger" icon="pi pi-trash" label="Xóa"
+              (click)="deleteProduct(product)"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pay-container">
+      <div class="pay-content">
+        <div class="total">
+          <span>Tổng cộng:</span><span class="product-price">${{ totalPrice() }}</span>
+        </div>
+        <div class="sub">
+          <span>Giá trên chưa bao gồm phí vận chuyển.</span>
+        </div>
+
+        <button pButton pRipple type="button" label="Tiếp tục mua sắm"
+          class="p-button-outlined p-button-success"></button>
+        <button pButton pRipple style="margin-left: 0.5em" type="button" label="Thanh toán"
+          class="p-button-success"></button>
+      </div>
+    </div>
+
+  </div>
+  <ng-template #cartEmpty>
+    <div class="cart-empty">
+      <p>Giỏ hàng của bạn đang rỗng! Tiếp tục mua sắm nào</p>
+    </div>
+  </ng-template>
+</div>
+
+<app-footer></app-footer>

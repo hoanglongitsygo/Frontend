@@ -1,0 +1,14 @@
+@import "../../../assets/css/color-variable.scss";
+
+.admin-container {
+  padding: 30px;
+
+  * {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .router {
+    border: 1px solid $color-border;
+    border-width: 0 2px 2px 2px;
+  }
+}

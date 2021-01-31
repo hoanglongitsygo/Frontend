@@ -4,11 +4,15 @@
       <p>Free ship đơn hàng từ 300.000đ</p>
     </div>
     <div class="action">
-      <i style="font-size: 1.5em;" (click)="onClickCart()" class="pi pi-shopping-cart" severity="danger" pBadge
-        value="{{ cart? cart.length : null }}"></i>
-      <i style="font-size: 1.5em; margin-left: 1em;" (click)="onClickFavorite()" class="pi pi-heart" severity="success"
-        pBadge value="{{ favorite?.length }}"></i>
-      <i style="font-size: 1.5em; margin-left: 1em;" (click)="onClickUser()" class="pi pi-user"></i>
+      <mat-icon svgIcon="shopping-cart" [matBadge]="cart?.length || ''" matBadgeColor="warn" (click)="onClickCart()"></mat-icon>
+      <mat-icon style="margin-left: 1em" [matBadge]="favorite?.length || ''" matBadgeColor="accent" svgIcon="heart" (click)="onClickFavorite()"></mat-icon>
+      <mat-icon *ngIf="!currentUser" style="margin-left: 1em" svgIcon="user" (click)="onClickUser()"></mat-icon>
+      <mat-icon *ngIf="currentUser?.username === 'admin'" style="margin-left: 1em" svgIcon="cog" (click)="onClickConfig()"></mat-icon>
+      <!-- avatar & username -->
+      <p-avatar *ngIf="currentUser"
+        [style]="{'background-color':'#2196F3', 'font-size': '1.5em', 'margin-left': '1em', 'color': '#ffffff'}"
+        label="{{ getName() }}" styleClass="p-mr-2" shape="circle"></p-avatar>
+      <span *ngIf="currentUser?.username">{{ currentUser.username }}</span>
     </div>
   </div>
 </div>

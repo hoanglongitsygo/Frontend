@@ -1,5 +1,7 @@
+import { CartService } from './../../../core/services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-arrival',
@@ -134,7 +136,9 @@ export class NewArrivalComponent implements OnInit {
   responsiveOptions;
 
   constructor(
-    private messageService: MessageService
+    private messageService: MessageService,
+    private cartService: CartService,
+    private router: Router
   ) {
     this.responsiveOptions = [
       {
@@ -164,6 +168,7 @@ export class NewArrivalComponent implements OnInit {
     listProduct.push(item)
     localStorage.setItem('cart', JSON.stringify(listProduct));
     this.messageService.add({ severity: 'success', summary: 'Thành công', detail: 'Bạn đã thêm sản phẩm vào giỏ hàng!' });
+    this.cartService.setCartLocalStorage(listProduct);
 
   }
 
@@ -177,6 +182,7 @@ export class NewArrivalComponent implements OnInit {
 
   viewDetails(id) {
     const product = this.products.find(item => item.id === id);
+    this.router.navigate([`/product-details/${id}`]);
     console.log(product);
   }
 }

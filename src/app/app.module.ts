@@ -25,6 +25,16 @@ import { BadgeModule } from 'primeng/badge';
 import { CartComponent } from './component/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
+import { LoadingComponent } from './shared/component/loading/loading.component';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { AdminComponent } from './component/admin/admin.component';
+import { FavoriteComponent } from './component/favorite/favorite.component';
+import { MatIconModule } from "@angular/material/icon";
+import { AdminModule } from './component/admin/admin.module';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { AvatarModule } from 'primeng/avatar';
+import {MatBadgeModule} from '@angular/material/badge';
+import { ProductDetailsComponent } from './component/product-details/product-details.component';
 
 
 
@@ -40,6 +50,10 @@ import { ToastModule } from 'primeng/toast';
     RegisterComponent,
     PageNotFoundComponent,
     CartComponent,
+    LoadingComponent,
+    AdminComponent,
+    FavoriteComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +69,13 @@ import { ToastModule } from 'primeng/toast';
     BadgeModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ToastModule
+    ToastModule,
+    ProgressSpinnerModule,
+    MatIconModule,
+    AdminModule,
+    TabMenuModule,
+    AvatarModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

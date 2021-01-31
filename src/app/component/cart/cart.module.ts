@@ -2,7 +2,7 @@ import { CartComponent } from './cart.component';
 import { ButtonModule } from 'primeng/button';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { DataViewModule } from 'primeng/dataview';
 
 const routes: Routes = [
   {
@@ -14,7 +14,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(routes),
-    ButtonModule
+    ButtonModule,
+    DataViewModule,
   ],
   exports: [
     RouterModule,

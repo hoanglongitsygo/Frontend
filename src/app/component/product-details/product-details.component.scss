@@ -1,0 +1,8 @@
+@import "../../../assets/css/color-variable.scss";
+
+.product-content {
+  border: 1px solid $color-border;
+  padding: 50px;
+  width: 70vw;
+  margin: 20px auto;
+}

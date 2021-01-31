@@ -1,16 +1,20 @@
 @import "./../../../../assets/css/color-variable.scss";
+@import "../../../../../node_modules/primeicons/primeicons.css";
 
 .header-bar {
   position: sticky;
   top: 0;
   z-index: 999;
   width: 100vw;
-  font-family: "Montserrat", sans-serif;
   height: 50px;
   background-color: $color-black-1;
   color: $color-white;
   display: flex;
   justify-content: center;
+
+  * {
+    font-family: "Montserrat", sans-serif;
+  }
 
   .header-bar-content {
     width: 70vw;
@@ -22,7 +26,7 @@
       display: flex;
       align-items: center;
 
-      i {
+      .mat-icon {
         cursor: pointer;
       }
     }
@@ -35,7 +39,10 @@
   background-color: $color-white;
   display: flex;
   justify-content: center;
-  font-family: "Imbue", serif;
+
+  * {
+    font-family: "Imbue", serif;
+  }
 
   .navigation-bar {
     display: flex;
@@ -67,6 +74,14 @@
           border-bottom: 4px solid $color-gray;
         }
       }
+    }
+  }
+}
+
+::ng-deep {
+  .header-icon-button {
+    .pi {
+      font-size: 1.5em;
     }
   }
 }
